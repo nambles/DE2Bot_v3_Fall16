@@ -1,0 +1,239 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 264 512)
+	(text "IO_DECODER" (rect 5 0 71 12)(font "Arial" ))
+	(text "inst" (rect 8 480 20 492)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "IO_ADDR[7..0]" (rect 0 0 66 12)(font "Arial" ))
+		(text "IO_ADDR[7..0]" (rect 21 27 87 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "IO_CYCLE" (rect 0 0 49 12)(font "Arial" ))
+		(text "IO_CYCLE" (rect 21 43 70 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 248 32)
+		(output)
+		(text "SWITCH_EN" (rect 0 0 59 12)(font "Arial" ))
+		(text "SWITCH_EN" (rect 168 27 227 39)(font "Arial" ))
+		(line (pt 248 32)(pt 232 32)(line_width 1))
+	)
+	(port
+		(pt 248 48)
+		(output)
+		(text "LED_EN" (rect 0 0 40 12)(font "Arial" ))
+		(text "LED_EN" (rect 187 43 227 55)(font "Arial" ))
+		(line (pt 248 48)(pt 232 48)(line_width 1))
+	)
+	(port
+		(pt 248 64)
+		(output)
+		(text "TIMER_EN" (rect 0 0 51 12)(font "Arial" ))
+		(text "TIMER_EN" (rect 176 59 227 71)(font "Arial" ))
+		(line (pt 248 64)(pt 232 64)(line_width 1))
+	)
+	(port
+		(pt 248 80)
+		(output)
+		(text "DIG_IN_EN" (rect 0 0 51 12)(font "Arial" ))
+		(text "DIG_IN_EN" (rect 176 75 227 87)(font "Arial" ))
+		(line (pt 248 80)(pt 232 80)(line_width 1))
+	)
+	(port
+		(pt 248 96)
+		(output)
+		(text "HEX1_EN" (rect 0 0 43 12)(font "Arial" ))
+		(text "HEX1_EN" (rect 184 91 227 103)(font "Arial" ))
+		(line (pt 248 96)(pt 232 96)(line_width 1))
+	)
+	(port
+		(pt 248 112)
+		(output)
+		(text "HEX2_EN" (rect 0 0 44 12)(font "Arial" ))
+		(text "HEX2_EN" (rect 183 107 227 119)(font "Arial" ))
+		(line (pt 248 112)(pt 232 112)(line_width 1))
+	)
+	(port
+		(pt 248 128)
+		(output)
+		(text "LCD_EN" (rect 0 0 40 12)(font "Arial" ))
+		(text "LCD_EN" (rect 187 123 227 135)(font "Arial" ))
+		(line (pt 248 128)(pt 232 128)(line_width 1))
+	)
+	(port
+		(pt 248 144)
+		(output)
+		(text "LED2_EN" (rect 0 0 44 12)(font "Arial" ))
+		(text "LED2_EN" (rect 183 139 227 151)(font "Arial" ))
+		(line (pt 248 144)(pt 232 144)(line_width 1))
+	)
+	(port
+		(pt 248 160)
+		(output)
+		(text "BEEP_EN" (rect 0 0 46 12)(font "Arial" ))
+		(text "BEEP_EN" (rect 181 155 227 167)(font "Arial" ))
+		(line (pt 248 160)(pt 232 160)(line_width 1))
+	)
+	(port
+		(pt 248 176)
+		(output)
+		(text "CT_EN" (rect 0 0 33 12)(font "Arial" ))
+		(text "CT_EN" (rect 194 171 227 183)(font "Arial" ))
+		(line (pt 248 176)(pt 232 176)(line_width 1))
+	)
+	(port
+		(pt 248 192)
+		(output)
+		(text "L_POS_EN" (rect 0 0 50 12)(font "Arial" ))
+		(text "L_POS_EN" (rect 177 187 227 199)(font "Arial" ))
+		(line (pt 248 192)(pt 232 192)(line_width 1))
+	)
+	(port
+		(pt 248 208)
+		(output)
+		(text "L_VEL_EN" (rect 0 0 53 12)(font "Arial" ))
+		(text "L_VEL_EN" (rect 174 203 227 215)(font "Arial" ))
+		(line (pt 248 208)(pt 232 208)(line_width 1))
+	)
+	(port
+		(pt 248 224)
+		(output)
+		(text "L_VELCTRL_EN" (rect 0 0 80 12)(font "Arial" ))
+		(text "L_VELCTRL_EN" (rect 147 219 227 231)(font "Arial" ))
+		(line (pt 248 224)(pt 232 224)(line_width 1))
+	)
+	(port
+		(pt 248 240)
+		(output)
+		(text "R_POS_EN" (rect 0 0 53 12)(font "Arial" ))
+		(text "R_POS_EN" (rect 174 235 227 247)(font "Arial" ))
+		(line (pt 248 240)(pt 232 240)(line_width 1))
+	)
+	(port
+		(pt 248 256)
+		(output)
+		(text "R_VEL_EN" (rect 0 0 55 12)(font "Arial" ))
+		(text "R_VEL_EN" (rect 172 251 227 263)(font "Arial" ))
+		(line (pt 248 256)(pt 232 256)(line_width 1))
+	)
+	(port
+		(pt 248 272)
+		(output)
+		(text "R_VELCTRL_EN" (rect 0 0 82 12)(font "Arial" ))
+		(text "R_VELCTRL_EN" (rect 145 267 227 279)(font "Arial" ))
+		(line (pt 248 272)(pt 232 272)(line_width 1))
+	)
+	(port
+		(pt 248 288)
+		(output)
+		(text "SONAR_EN" (rect 0 0 56 12)(font "Arial" ))
+		(text "SONAR_EN" (rect 171 283 227 295)(font "Arial" ))
+		(line (pt 248 288)(pt 232 288)(line_width 1))
+	)
+	(port
+		(pt 248 304)
+		(output)
+		(text "I2C_CMD_EN" (rect 0 0 62 12)(font "Arial" ))
+		(text "I2C_CMD_EN" (rect 165 299 227 311)(font "Arial" ))
+		(line (pt 248 304)(pt 232 304)(line_width 1))
+	)
+	(port
+		(pt 248 320)
+		(output)
+		(text "I2C_DATA_EN" (rect 0 0 69 12)(font "Arial" ))
+		(text "I2C_DATA_EN" (rect 158 315 227 327)(font "Arial" ))
+		(line (pt 248 320)(pt 232 320)(line_width 1))
+	)
+	(port
+		(pt 248 336)
+		(output)
+		(text "I2C_RDY_EN" (rect 0 0 62 12)(font "Arial" ))
+		(text "I2C_RDY_EN" (rect 165 331 227 343)(font "Arial" ))
+		(line (pt 248 336)(pt 232 336)(line_width 1))
+	)
+	(port
+		(pt 248 352)
+		(output)
+		(text "UART_D_EN" (rect 0 0 62 12)(font "Arial" ))
+		(text "UART_D_EN" (rect 165 347 227 359)(font "Arial" ))
+		(line (pt 248 352)(pt 232 352)(line_width 1))
+	)
+	(port
+		(pt 248 368)
+		(output)
+		(text "UART_S_EN" (rect 0 0 61 12)(font "Arial" ))
+		(text "UART_S_EN" (rect 166 363 227 375)(font "Arial" ))
+		(line (pt 248 368)(pt 232 368)(line_width 1))
+	)
+	(port
+		(pt 248 384)
+		(output)
+		(text "XPOS_EN" (rect 0 0 44 12)(font "Arial" ))
+		(text "XPOS_EN" (rect 183 379 227 391)(font "Arial" ))
+		(line (pt 248 384)(pt 232 384)(line_width 1))
+	)
+	(port
+		(pt 248 400)
+		(output)
+		(text "YPOS_EN" (rect 0 0 46 12)(font "Arial" ))
+		(text "YPOS_EN" (rect 181 395 227 407)(font "Arial" ))
+		(line (pt 248 400)(pt 232 400)(line_width 1))
+	)
+	(port
+		(pt 248 416)
+		(output)
+		(text "TPOS_EN" (rect 0 0 44 12)(font "Arial" ))
+		(text "TPOS_EN" (rect 183 411 227 423)(font "Arial" ))
+		(line (pt 248 416)(pt 232 416)(line_width 1))
+	)
+	(port
+		(pt 248 432)
+		(output)
+		(text "POS_RSTN" (rect 0 0 51 12)(font "Arial" ))
+		(text "POS_RSTN" (rect 176 427 227 439)(font "Arial" ))
+		(line (pt 248 432)(pt 232 432)(line_width 1))
+	)
+	(port
+		(pt 248 448)
+		(output)
+		(text "RIN_EN" (rect 0 0 37 12)(font "Arial" ))
+		(text "RIN_EN" (rect 190 443 227 455)(font "Arial" ))
+		(line (pt 248 448)(pt 232 448)(line_width 1))
+	)
+	(port
+		(pt 248 464)
+		(output)
+		(text "LIN_EN" (rect 0 0 35 12)(font "Arial" ))
+		(text "LIN_EN" (rect 192 459 227 471)(font "Arial" ))
+		(line (pt 248 464)(pt 232 464)(line_width 1))
+	)
+	(drawing
+		(rectangle (rect 16 16 232 480)(line_width 1))
+	)
+)

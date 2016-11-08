@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="DE2Bot">
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|VEL_CONTROL:inst51|lpm_mult:Mult1" CBX_FILE_NAME="mult_45t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|VEL_CONTROL:inst52|lpm_mult:Mult0" CBX_FILE_NAME="mult_m3t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|ODOMETRY:inst53|lpm_mult:MULTIPLIERT|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_9ch.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|OPTICAL_ENCODER:inst27|POSN_VEL:inst|lpm_add_sub_oe0:inst15|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_nfh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|OPTICAL_ENCODER:inst27|lpm_constant_oe0:inst8|lpm_constant:lpm_constant_component" CBX_FILE_NAME="lpm_constant_8h6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|UART_INTERFACE:inst1|uart_dcfifo_out:inst14|dcfifo:dcfifo_component" CBX_FILE_NAME="dcfifo_31m1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|VEL_CONTROL:inst51|LPM_COMPARE:compare" CBX_FILE_NAME="cmpr_a2i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|VEL_CONTROL:inst51|lpm_mult:Mult2" CBX_FILE_NAME="mult_q3t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|VEL_CONTROL:inst52|lpm_mult:Mult1" CBX_FILE_NAME="mult_45t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|ODOMETRY:inst53|lpm_mult:MULTIPLIERX" CBX_FILE_NAME="mult_h3o.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|OPTICAL_ENCODER:inst22|POSN_VEL:inst|lpm_counter_oe0:inst2|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_mrg.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|OPTICAL_ENCODER:inst27|POSN_VEL:inst|lpm_add_sub_oe0:inst16|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_nfh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|SCOMP:inst8|LPM_CLSHIFT:SHIFTER" CBX_FILE_NAME="lpm_clshift_fuc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|VEL_CONTROL:inst51|lpm_mult:Mult3" CBX_FILE_NAME="mult_25t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|VEL_CONTROL:inst52|LPM_COMPARE:compare" CBX_FILE_NAME="cmpr_a2i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|VEL_CONTROL:inst52|lpm_mult:Mult2" CBX_FILE_NAME="mult_q3t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|ODOMETRY:inst53|lpm_mult:MULTIPLIERY" CBX_FILE_NAME="mult_h3o.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|UART_INTERFACE:inst1|uart_dcfifo_in:inst8|dcfifo:dcfifo_component" CBX_FILE_NAME="dcfifo_qtl1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|VEL_CONTROL:inst51|lpm_counter:counter" CBX_FILE_NAME="cntr_gkj.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|VEL_CONTROL:inst52|lpm_mult:Mult3" CBX_FILE_NAME="mult_25t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|DAC_BEEP:inst35|altsyncram:SOUND_LUT" CBX_FILE_NAME="altsyncram_pmk3.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|OPTICAL_ENCODER:inst22|POSN_VEL:inst|lpm_add_sub_oe0:inst15|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_nfh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|OPTICAL_ENCODER:inst22|lpm_constant_oe0:inst8|lpm_constant:lpm_constant_component" CBX_FILE_NAME="lpm_constant_8h6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|OPTICAL_ENCODER:inst27|POSN_VEL:inst|lpm_mult_oe0:inst18|lpm_mult:lpm_mult_component" CBX_FILE_NAME="mult_j2n.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|VEL_CONTROL:inst52|lpm_counter:counter" CBX_FILE_NAME="cntr_gkj.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|ODOMETRY:inst53|altsyncram:SIN_LUT" CBX_FILE_NAME="altsyncram_06l3.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|OPTICAL_ENCODER:inst22|POSN_VEL:inst|lpm_add_sub_oe0:inst16|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_nfh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|ODOMETRY:inst53|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_ulo.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|ODOMETRY:inst53|lpm_mult:MULTIPLIERT|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_5ch.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|OPTICAL_ENCODER:inst22|POSN_VEL:inst|lpm_mult_oe0:inst18|lpm_mult:lpm_mult_component" CBX_FILE_NAME="mult_j2n.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|OPTICAL_ENCODER:inst27|POSN_VEL:inst|lpm_counter_oe0:inst2|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_mrg.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|SCOMP:inst8|altsyncram:MEMORY" CBX_FILE_NAME="altsyncram_l7t3.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|VEL_CONTROL:inst51|lpm_mult:Mult0" CBX_FILE_NAME="mult_m3t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2bot|ODOMETRY:inst53|altsyncram:COS_LUT" CBX_FILE_NAME="altsyncram_r5l3.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
