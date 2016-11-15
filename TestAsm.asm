@@ -81,51 +81,83 @@ Main:
 	OR		Mask5	
 	OUT		SONAREN	; Enable al 6 forward-facing sensors
 	
-	
-;WallFollow:
-;	IN		Dist5	; Take in the distance to the closest object on the right
-;	SUB		Dist0	; Take in the distance to the closest object on the left
-;	JPOS	LeftWall ; If the distance to the left object is greater than the distance to the right object, we have the wall to the bot's left
-	
-RightWallSetup:			; Instructions to follow along the right wall
-	IN		DIST4
-	STORE	D4
-	ADDI	-40
-	STORE	D4Low
-	
-RightWall:
+Start:
 	LOAD	FMid
-	OUT		RVELCMD
-	OUT		LVELCMD
-	IN		DIST4
-	SUB		D4Low
-	JNEG	RClose
-	ADDI	-80
-	JPOS	RFar
-	JUMP	RightWall
+	STORE	DVel
 	
-		
-RClose:
-	LOAD	FSlow
-	OUT		LVELCMD
-	LOAD	FMid
-	OUT		RVELCMD
-	IN		DIST4
-	SUB		D4
-	JPOS	RightWall
-	JUMP	RClose
-	
-RFar:
-	LOAD	FSlow
-	OUT		RVELCMD
-	LOAD	FMid
-	OUT		LVELCMD
-	IN		DIST4
-	SUB		D4
-	JNEG	RightWall
-	JUMP	RFar
+Search:
+	LOAD	XPOS
+	STORE	TempX
+	LOAD	DIST5
+	STORE	D5
+	ADDI	-2051 ; Check if sensor 5 detects something ~7 Feet Away at 90 degree angle
+	JNEG	Find5
+	LOAD	XPOS
+	ADDI	-3224
+	JPOS	ReturnHome
+	LOAD	DIST3
+	STORE	D3
+	ADDI	-600 ; Check if sensor 3 detects something ~2 Feet away
+	JNEG	Find3
 	
 	
+	
+Find5:
+	LOAD 	D5
+	ADDI	20
+	STORE	ATanY
+	LOAD	TempX
+	STORE	ATanX
+	LOAD	Deg270
+	STORE	DTheta
+	
+GoTo5:
+	LOAD	YPOS
+	SUB		D5
+	JNEG	ReturnHome
+	JUMP	GoTo5
+	
+Find3:
+	LOAD	XPOS
+	SUB		D3
+	SUB		TwoFeet
+	JNEG	Find3
+	
+	LOAD	XPOS
+	STORE	ATanX
+	LOAD	Deg270
+	STORE	DTheta
+GoTo3:	
+	LOAD	YPOS
+	ADDI	-230
+	JNEG	GoTo3
+	LOAD	YPOS
+	STORE	ATanY
+	JUMP	GoHome
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	
@@ -655,9 +687,11 @@ I2CError:
 ;***************************************************************
 ;* Variables
 ;***************************************************************
-Temp:     DW 0 ; "Temp" is not a great name, but can be useful
-D4:		 DW	0 ;
-D4Low:   DW 0 ; Stored value of Sensor 0
+Temp:    DW 0 ; "Temp" is not a great name, but can be useful
+D5:		 DW	0 ; Stored value of Sensor 5
+D3:		 DW	0 ; 
+TempX:	 DW 0 ;
+TempY:	 DW 0 ;
 
 ;***************************************************************
 ;* Constants
