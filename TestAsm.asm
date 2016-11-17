@@ -142,18 +142,15 @@ GoTo3:
 	
 	
 
-
-
-
-
-
-
-
-
-
-
-
-
+CALL 	Atan2
+	ADDI	90
+	STORE 	DTheta
+	LOAD	FMid
+	STORE	DVel
+	IN		XPOS
+	ADDI	-20			; *test for value*
+	JNEG	Die
+	JUMP	ReturnHome
 
 
 
