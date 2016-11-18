@@ -1,4 +1,4 @@
-; Fall2016StartingPoint.asm
+ ; Fall2016StartingPoint.asm
 ; This program includes a basic movement API that allows the
 ; user to specify a desired heading and speed, and the API will
 ; attempt to control the robot in an appropriate way.
@@ -73,51 +73,58 @@ Main:
 	
 
 	
-	LOAD	Mask0
-	OR		Mask1
-	OR		Mask2
-	OR		Mask3
+	;Later, we need to convert all of these jump routines into call subroutines
+	
+	
+	
+	
+	LOAD	Mask3
 	OR		Mask4
 	OR		Mask5	
 	OUT		SONAREN	; Enable al 6 forward-facing sensors
-	
-Start:
-	LOAD	FMid	
+	LOAD	FFast	
 	STORE	DVel
 	LOAD	Zero
 	STORE	DTheta ; Start the robot at medium speed in the 0 degree direction
 	
 Search:
-	IN		XPOS
-	STORE	TempX
-	IN		DIST5
-	STORE	D5
-	ADDI	-2051 ; Check if sensor 5 detects something ~7 Feet Away at 90 degree angle
-	JNEG	Find5 ; If true, then go to object retrieval routine
-	IN		XPOS
-	ADDI	-3224 
-	JPOS	ReturnHome ; If the robot travels 11 feet from the starting position, return home
-	IN		DIST3
-	STORE	D3
-	ADDI	-600 ; Check if sensor 3 detects something ~2 Feet away
-	JNEG	Find3 ; If true, then go to object retrieval routine
+;	IN		SONALARM
+;	OUT		SSEG1
+	IN		Dist5
+	STORE	YDist
+	SUB		SevenFt
+	JNEG	Find5Setup
+	JUMP	Search
 	
 	
+	
+	; Possibly have the robot stop and turn rather that immediatly going into the turning routine
+	
+	
+	
+Find5Setup:
+	LOAD	YDist
+	ADDI	-289
+	STORE	YDist
 	
 Find5:
-	LOAD 	D5	
-	ADDI	20
-	STORE	ATanY
-	LOAD	TempX
-	STORE	ATanX
 	LOAD	Deg270
 	STORE	DTheta
+	IN		YPOS
+	ADD		YDist
+	JNEG 	ReturnHome
+	JUMP	Find5
+	
+;----------------------------------------------------------------------------------------	
+	
 	
 GoTo5:
 	IN		YPOS
 	SUB		D5
 	JNEG	ReturnHome
 	JUMP	GoTo5
+	
+	; Same thing with the robot possible stopping here for a bit
 	
 Find3:
 	IN		XPOS
@@ -137,17 +144,52 @@ GoTo3:
 	STORE	ATanY
 	JUMP	ReturnHome
 	
-	
-	
+
+;==============================================================================================
 	
 ReturnHome:
-	CALL	Die
+	; Use Atan2 to find tangent angle and then turn robot to face 360 - angle
+	; to a distance of \sqrt(d). Although, we may not need to do this, since we
+	; can just have the robot go forever and once it reaches the home plate, pick
+	; it up. This means that we need to have the robot facing the correct angle
+	; in the first place.
+
+	LOAD	Zero
+	STORE	DVel
+	IN		XPOS
+	STORE	ATanX
+	IN		YPOS
+	STORE	ATanY
+	CALL 	Atan2
+ 	ADDI	185
+ 	STORE 	DTheta
+ 	LOAD	FFast
+	STORE	DVel
 	
+Returning:
+	IN		XPOS
+	ADDI	-100		; *test for value*
+ 	JNEG	ReturnY
+    JUMP	Returning
+    
+ReturnY:
+	IN		YPOS
+	ADDI	100
+	JNEG	ReturnY2
+	JUMP	Die
 	
+ReturnY2:
+	Load	Deg90
+	Store	DTheta
+	JUMP	ReturnY
+	
+		
 
 
-
-
+ 	; We also need to find a way to correct for any innaccuracies created by
+ 	; the wheel movement because for some of the robots, the wheels have a tendency
+ 	; to curve off to either side. This changes for each robot, so it can't be 
+ 	; hardcoded.
 
 
 
@@ -192,6 +234,8 @@ CTimer_ISR:
 DTheta:    DW 0
 DVel:      DW 0
 ControlMovement:
+
+
 	; convenient way to get +/-180 angle error is
 	; ((error + 180) % 360 ) - 180
 	IN     THETA
@@ -200,9 +244,17 @@ ControlMovement:
 	ADDI   180
 	CALL   Mod360
 	ADDI   -180
+	
+	
+	
+	
+	
+	
+	
+	
 	; A quick-and-dirty way to get a decent velocity value
 	; for turning is to multiply the angular error by 4.
-	SHIFT  2
+	SHIFT  3
 	STORE  CMAErr      ; hold temporarily
 
 	
@@ -211,6 +263,9 @@ ControlMovement:
 	; velocity for each wheel when turning is needed.
 	LOAD   DVel
 	ADD    CMAErr
+	
+	
+	
 	CALL   CapVel      ; ensure velocity is valid
 	OUT    RVELCMD
 	LOAD   CMAErr
@@ -695,6 +750,7 @@ D5:		 DW	0 ; Stored value of Sensor 5
 D3:		 DW	0 ; 
 TempX:	 DW 0 ;
 TempY:	 DW 0 ;
+YDist:	 DW 0 ;
 
 ;***************************************************************
 ;* Constants
@@ -731,13 +787,16 @@ LowNibl:  DW &HF       ; 0000 0000 0000 1111
 OneMeter: DW 961       ; ~1m in 1.04mm units
 HalfMeter: DW 481      ; ~0.5m in 1.04mm units
 TwoFeet:  DW 586       ; ~2ft in 1.04mm units
+FiveFeet: DW 1465      ; ~ 5Ft
+SevenFt:  DW 2051	   ; ~7 ft
+ElevenFt: DW 3224
 Deg90:    DW 90        ; 90 degrees in odometer units
 Deg180:   DW 180       ; 180
 Deg270:   DW 270       ; 270
 Deg360:   DW 360       ; can never actually happen; for math only
 FSlow:    DW 100       ; 100 is about the lowest velocity value that will move
 RSlow:    DW -100
-FMid:     DW 350       ; 350 is a medium speed
+FMid:     DW 350       ; 350 is a medium speedS
 RMid:     DW -350
 FFast:    DW 500       ; 500 is almost max speed (511 is max)
 RFast:    DW -500
