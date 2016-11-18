@@ -82,28 +82,30 @@ Main:
 	OUT		SONAREN	; Enable al 6 forward-facing sensors
 	
 Start:
-	LOAD	FMid
+	LOAD	FMid	
 	STORE	DVel
+	LOAD	Zero
+	STORE	DTheta ; Start the robot at medium speed in the 0 degree direction
 	
 Search:
-	LOAD	XPOS
+	IN		XPOS
 	STORE	TempX
-	LOAD	DIST5
+	IN		DIST5
 	STORE	D5
 	ADDI	-2051 ; Check if sensor 5 detects something ~7 Feet Away at 90 degree angle
-	JNEG	Find5
-	LOAD	XPOS
-	ADDI	-3224
-	JPOS	ReturnHome
-	LOAD	DIST3
+	JNEG	Find5 ; If true, then go to object retrieval routine
+	IN		XPOS
+	ADDI	-3224 
+	JPOS	ReturnHome ; If the robot travels 11 feet from the starting position, return home
+	IN		DIST3
 	STORE	D3
 	ADDI	-600 ; Check if sensor 3 detects something ~2 Feet away
-	JNEG	Find3
+	JNEG	Find3 ; If true, then go to object retrieval routine
 	
 	
 	
 Find5:
-	LOAD 	D5
+	LOAD 	D5	
 	ADDI	20
 	STORE	ATanY
 	LOAD	TempX
@@ -112,33 +114,34 @@ Find5:
 	STORE	DTheta
 	
 GoTo5:
-	LOAD	YPOS
+	IN		YPOS
 	SUB		D5
 	JNEG	ReturnHome
 	JUMP	GoTo5
 	
 Find3:
-	LOAD	XPOS
+	IN		XPOS
 	SUB		D3
 	SUB		TwoFeet
 	JNEG	Find3
 	
-	LOAD	XPOS
+	IN		XPOS
 	STORE	ATanX
 	LOAD	Deg270
 	STORE	DTheta
 GoTo3:	
-	LOAD	YPOS
+	IN		YPOS
 	ADDI	-230
 	JNEG	GoTo3
-	LOAD	YPOS
+	IN		YPOS
 	STORE	ATanY
-	JUMP	GoHome
+	JUMP	ReturnHome
 	
 	
 	
 	
-	
+ReturnHome:
+	CALL	Die
 	
 	
 
